@@ -36,11 +36,66 @@ Edit this document to include your answers after each question. Make sure to lea
 
 2. What is the difference between a function and a method?
 
+All methods are functions but not all functions are methods. A method is a function that is attached to an object.
+
 3. What is closure?
+
+When a function is declared, a new scope is created, a functional scope.
+The variables or functions declared within that function can reach outward for context, but never inward. Meaning the innermost function can access all of the outer functions but the outer functions cannot see into the innermost function.
 
 4. Describe the four rules of the 'this' keyword.
 
+* 1. Window binding - when using the "this" keyword in global 
+     scope it will return the window/console object.
+ 
+     
+* 2. Implicit binding - when using implicit binding the "this" 
+     keyword will refer to whatever is left of the "."
+ 
+
+* 3. New binding - New binding occurs when using a constructor 
+     funtion along with the "new" keyword which will allow the 
+     "this" keyword to point to the new object that has been created.
+
+
+* 4. Explicit binding - this occurs when you specifically use .call, 
+     .apply, or .bind on a function. This is explicit binding because 
+     you are explicitly passing in a "this" context using .call, .apply, or .bind. 
+
 5. Why do we need super() in an extended class?
+
+
+It grabs all the stuff from the previous class constructor. By doing this you make sure that the current class constructor is an instance of the previous one.
+
+For example in the code below using super in the CharacterStats class constructor ensures that CharacterStats is an instance of GameObject and inherits all it's properties.
+
+class GameObject {
+    constructor(attributes) {
+        this.createdAt = attributes.createdAt;
+        this.name = attributes.name;
+        this.dimensions = attributes.dimensions;
+    }
+
+    destroy() {
+        return (`${this.name} was removed from the game.`);
+    }
+}
+
+
+class CharacterStats extends GameObject {
+    constructor(statsAttributes) {
+        super(statsAttributes);
+        this.healthPoints = statsAttributes.healthPoints;
+    }
+
+    takeDamage() {
+        return (`${this.name} took damage.`);
+    }
+}
+
+
+
+
 
 ## Project Set up
 
