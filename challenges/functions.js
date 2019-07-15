@@ -18,15 +18,15 @@ function consume (x, y, cb) {
 */
 
 function add(x, y) {
-  return (x + y);
+  console.log(x + y);
 }
 
 function multiply(x, y) {
-  return (x * y);
+  console.log(x * y);
 }
 
 function greeting(first_name, last_name) {
-  return (`Hello ${first_name} ${last_name}, nice to meet you!`);
+  console.log(`Hello ${first_name} ${last_name}, nice to meet you!`);
 }
 
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
